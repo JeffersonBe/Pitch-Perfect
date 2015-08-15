@@ -23,37 +23,87 @@
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3vr-zs-0qW"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4D-V8-LKf">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2if-ql-H8E">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="QFr-ga-k3w"/>
+                                </constraints>
+                                <state key="normal" image="Pause"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="QFr-ga-k3w"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="QFr-ga-k3w"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="stopAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tiC-eC-TCw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="p9R-aS-AkS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fOF-tO-utX"/>
-                            <constraint firstItem="p9R-aS-AkS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iJb-X1-t0J"/>
+                            <constraint firstItem="p9R-aS-AkS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2js-tc-sI9"/>
+                            <constraint firstItem="m4D-V8-LKf" firstAttribute="centerX" secondItem="p9R-aS-AkS" secondAttribute="centerX" id="Dwb-VB-MFO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2if-ql-H8E" secondAttribute="bottom" constant="39" id="WCS-wH-i8t"/>
+                            <constraint firstItem="m4D-V8-LKf" firstAttribute="centerX" secondItem="p9R-aS-AkS" secondAttribute="centerX" id="Znn-Vf-vhl"/>
+                            <constraint firstItem="p9R-aS-AkS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aWa-wl-nZa"/>
+                            <constraint firstItem="2if-ql-H8E" firstAttribute="centerX" secondItem="m4D-V8-LKf" secondAttribute="centerX" id="fKb-vf-jV2"/>
+                            <constraint firstItem="m4D-V8-LKf" firstAttribute="top" secondItem="p9R-aS-AkS" secondAttribute="bottom" constant="18" id="jLW-On-s3f"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="p9R-aS-AkS"/>
+                                <exclude reference="m4D-V8-LKf"/>
+                                <exclude reference="2if-ql-H8E"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="fOF-tO-utX"/>
-                                <exclude reference="iJb-X1-t0J"/>
+                                <exclude reference="2js-tc-sI9"/>
+                                <exclude reference="aWa-wl-nZa"/>
+                                <exclude reference="Dwb-VB-MFO"/>
+                                <exclude reference="Znn-Vf-vhl"/>
+                                <exclude reference="jLW-On-s3f"/>
+                                <exclude reference="fKb-vf-jV2"/>
+                                <exclude reference="WCS-wH-i8t"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="p9R-aS-AkS"/>
+                                <include reference="m4D-V8-LKf"/>
+                                <include reference="2if-ql-H8E"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="fOF-tO-utX"/>
-                                <include reference="iJb-X1-t0J"/>
+                                <include reference="2js-tc-sI9"/>
+                                <include reference="aWa-wl-nZa"/>
+                                <include reference="Dwb-VB-MFO"/>
+                                <include reference="Znn-Vf-vhl"/>
+                                <include reference="jLW-On-s3f"/>
+                                <include reference="fKb-vf-jV2"/>
+                                <include reference="WCS-wH-i8t"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="recordingInProgress" destination="m4D-V8-LKf" id="MMT-cs-uiC"/>
+                        <outlet property="stopRecording" destination="2if-ql-H8E" id="4Lk-Xe-EZB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
     <resources>
-        <image name="Mic" width="100" height="175"/>
+        <image name="Mic" width="57" height="100"/>
+        <image name="Pause" width="100" height="100"/>
     </resources>
 </document>
