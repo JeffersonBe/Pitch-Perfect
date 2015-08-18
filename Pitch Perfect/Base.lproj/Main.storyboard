@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qMe-mN-T0Z">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Record-->
@@ -105,17 +106,81 @@
             </objects>
             <point key="canvasLocation" x="1057.5" y="318.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Play Sounds View Controller-->
         <scene sceneID="nS9-6A-aQA">
             <objects>
-                <viewController id="Ai9-Bm-GRe" sceneMemberID="viewController">
+                <viewController id="Ai9-Bm-GRe" customClass="PlaySoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FC0-hv-Ygj"/>
                         <viewControllerLayoutGuide type="bottom" id="IBq-vh-3zc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="use-Sl-zC7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4I-2P-QCL">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Quick"/>
+                                <connections>
+                                    <action selector="playAudioQuickly:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="GBY-61-2lA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqB-74-Ajx">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Pause"/>
+                                <connections>
+                                    <action selector="stopAudio:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="QXk-99-mfT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERT-i1-Rvb">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Slow"/>
+                                <connections>
+                                    <action selector="playAudioSlowly:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="nlt-Iq-bFX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f4I-2P-QCL" firstAttribute="top" secondItem="FC0-hv-Ygj" secondAttribute="bottom" constant="48" id="AHa-Yx-evU"/>
+                            <constraint firstItem="ZqB-74-Ajx" firstAttribute="centerX" secondItem="use-Sl-zC7" secondAttribute="centerX" id="Gfs-8X-dIb"/>
+                            <constraint firstItem="ERT-i1-Rvb" firstAttribute="leading" secondItem="use-Sl-zC7" secondAttribute="leadingMargin" constant="12" id="duS-Ge-wpR">
+                                <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                            </constraint>
+                            <constraint firstItem="ERT-i1-Rvb" firstAttribute="top" secondItem="FC0-hv-Ygj" secondAttribute="bottom" constant="48" id="luS-da-7oJ"/>
+                            <constraint firstItem="IBq-vh-3zc" firstAttribute="top" secondItem="ZqB-74-Ajx" secondAttribute="bottom" constant="20" id="mkY-V9-aVp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f4I-2P-QCL" secondAttribute="trailing" constant="24" id="smN-wk-Vtw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="f4I-2P-QCL"/>
+                                <exclude reference="ZqB-74-Ajx"/>
+                                <exclude reference="ERT-i1-Rvb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="duS-Ge-wpR"/>
+                                <exclude reference="luS-da-7oJ"/>
+                                <exclude reference="AHa-Yx-evU"/>
+                                <exclude reference="smN-wk-Vtw"/>
+                                <exclude reference="Gfs-8X-dIb"/>
+                                <exclude reference="mkY-V9-aVp"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="f4I-2P-QCL"/>
+                                <include reference="ZqB-74-Ajx"/>
+                                <include reference="ERT-i1-Rvb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="duS-Ge-wpR"/>
+                                <include reference="luS-da-7oJ"/>
+                                <include reference="AHa-Yx-evU"/>
+                                <include reference="smN-wk-Vtw"/>
+                                <include reference="Gfs-8X-dIb"/>
+                                <include reference="mkY-V9-aVp"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVX-y1-Gnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,5 +209,7 @@
     <resources>
         <image name="Mic" width="57" height="100"/>
         <image name="Pause" width="100" height="100"/>
+        <image name="Quick" width="152" height="152"/>
+        <image name="Slow" width="152" height="152"/>
     </resources>
 </document>
