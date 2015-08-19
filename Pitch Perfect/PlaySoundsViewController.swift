@@ -14,6 +14,7 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        soundPlayer = setupAudioPlayerWithFile("movie_quote", type: "mp3")
         // Do any additional setup after loading the view.
         
     }
@@ -23,32 +24,21 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func stopAudio(sender: AnyObject) {
         soundPlayer.stop()
     }
     
     @IBAction func playAudioQuickly(sender: AnyObject) {
-        soundPlayer = setupAudioPlayerWithFile("movie_quote", type: "mp3")
-        soundPlayer.stop()
         soundPlayer.enableRate = true
+        soundPlayer.currentTime = soundPlayer.currentTime
         soundPlayer.rate = 2.0
         soundPlayer.play()
     }
 
     @IBAction func playAudioSlowly(sender: AnyObject?) {
-        soundPlayer = setupAudioPlayerWithFile("movie_quote", type: "mp3")
-        soundPlayer.stop()
         soundPlayer.enableRate = true
+        soundPlayer.currentTime = soundPlayer.currentTime
+        soundPlayer.currentTime = 0.0
         soundPlayer.rate = 0.5
         soundPlayer.play()
     }
