@@ -9,14 +9,17 @@
 import UIKit
 import AVFoundation
 
-class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
+class PlaySoundsViewController: UIViewController {
     var soundPlayer: AVAudioPlayer!
+    var receivedAudio:RecordedAudio!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        soundPlayer = setupAudioPlayerWithFile("movie_quote", type: "mp3")
-        // Do any additional setup after loading the view.
-        
+        do {
+            try soundPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, fileTypeHint: "wav")
+        } catch let error as NSError {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,18 +44,5 @@ class PlaySoundsViewController: UIViewController, AVAudioPlayerDelegate {
         soundPlayer.currentTime = 0.0
         soundPlayer.rate = 0.5
         soundPlayer.play()
-    }
-    
-    func setupAudioPlayerWithFile(file:NSString, type:NSString) -> AVAudioPlayer  {
-        let path = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(file as String, ofType: type as String)!)
-        var audioPlayer:AVAudioPlayer?
-        
-        do {
-            try audioPlayer = AVAudioPlayer(contentsOfURL: path)
-        } catch {
-            print("NO AUDIO PLAYER")
-        }
-        
-        return audioPlayer!
     }
 }

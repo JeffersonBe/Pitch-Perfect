@@ -9,18 +9,17 @@
 import UIKit
 import AVFoundation
 
-class RecordSoundsViewController: UIViewController, AVAudioPlayerDelegate {
+class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordingInProgress: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
     
     var audioRecorder:AVAudioRecorder!
+    var recordedAudio:RecordedAudio!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,11 +35,10 @@ class RecordSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         stopButton.hidden = false
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
         
-        //        let currentDateTime = NSDate()
-        //        let formatter = NSDateFormatter()
-        //        formatter.dateFormat = "ddMMyyyy-HHmmss"
-        //        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
-        let recordingName = "test"+".wav"
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
         let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.Min.rawValue,
@@ -62,17 +60,30 @@ class RecordSoundsViewController: UIViewController, AVAudioPlayerDelegate {
         } catch let error as NSError {
             print(error.description)
         }
+        audioRecorder.delegate = self
         audioRecorder.meteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
-        
-        //Inside func stopAudio(sender: UIButton)
-        audioRecorder.stop()
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setActive(false)
-        } catch let error as NSError {
-            print(error.description)
+    }
+
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        if(flag){
+            recordedAudio = RecordedAudio()
+            recordedAudio.filePathUrl = recorder.url
+            recordedAudio.title = recorder.url.lastPathComponent
+            self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
+        } else {
+            print("Recording wasn't successful")
+            recordButton.enabled = true
+            stopButton.hidden = true
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "stopRecording"){
+            let playSoundsViewController: PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
+            let data = sender as! RecordedAudio
+            playSoundsViewController.receivedAudio = data
         }
     }
 
