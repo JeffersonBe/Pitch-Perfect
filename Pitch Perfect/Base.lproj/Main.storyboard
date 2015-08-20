@@ -197,15 +197,33 @@
                                     <action selector="playAudioSlowly:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="nlt-Iq-bFX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRk-Kv-5bs">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Chipmunk"/>
+                                <connections>
+                                    <action selector="playAudioChipmunkLike:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="8Gz-df-s5S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIo-lt-5JY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Dark Vador"/>
+                                <connections>
+                                    <action selector="playAudioDarkVadorLike:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="fQ4-o4-cNp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oRk-Kv-5bs" firstAttribute="top" secondItem="ERT-i1-Rvb" secondAttribute="bottom" constant="8" id="2YP-7q-meD"/>
                             <constraint firstItem="f4I-2P-QCL" firstAttribute="leading" secondItem="ERT-i1-Rvb" secondAttribute="trailing" constant="8" id="4u0-ws-qF8"/>
                             <constraint firstItem="f4I-2P-QCL" firstAttribute="top" secondItem="FC0-hv-Ygj" secondAttribute="bottom" constant="48" id="AHa-Yx-evU"/>
                             <constraint firstItem="ZqB-74-Ajx" firstAttribute="centerX" secondItem="use-Sl-zC7" secondAttribute="centerX" id="Gfs-8X-dIb"/>
+                            <constraint firstItem="oRk-Kv-5bs" firstAttribute="leading" secondItem="use-Sl-zC7" secondAttribute="leadingMargin" constant="24" id="a3x-H2-7NH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zIo-lt-5JY" secondAttribute="trailing" constant="24" id="bpm-hB-1rh"/>
                             <constraint firstItem="ERT-i1-Rvb" firstAttribute="leading" secondItem="use-Sl-zC7" secondAttribute="leadingMargin" constant="12" id="duS-Ge-wpR">
                                 <variation key="heightClass=regular-widthClass=compact" constant="24"/>
                             </constraint>
+                            <constraint firstItem="zIo-lt-5JY" firstAttribute="top" secondItem="f4I-2P-QCL" secondAttribute="bottom" constant="8" id="lHR-jh-Erf"/>
                             <constraint firstItem="ERT-i1-Rvb" firstAttribute="top" secondItem="FC0-hv-Ygj" secondAttribute="bottom" constant="48" id="luS-da-7oJ"/>
                             <constraint firstItem="IBq-vh-3zc" firstAttribute="top" secondItem="ZqB-74-Ajx" secondAttribute="bottom" constant="20" id="mkY-V9-aVp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f4I-2P-QCL" secondAttribute="trailing" constant="24" id="smN-wk-Vtw"/>
@@ -216,16 +234,22 @@
                                 <exclude reference="f4I-2P-QCL"/>
                                 <exclude reference="ZqB-74-Ajx"/>
                                 <exclude reference="ERT-i1-Rvb"/>
+                                <exclude reference="oRk-Kv-5bs"/>
+                                <exclude reference="zIo-lt-5JY"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="mkY-V9-aVp"/>
                                 <exclude reference="duS-Ge-wpR"/>
                                 <exclude reference="luS-da-7oJ"/>
-                                <exclude reference="Gfs-8X-dIb"/>
                                 <exclude reference="4u0-ws-qF8"/>
                                 <exclude reference="AHa-Yx-evU"/>
                                 <exclude reference="smN-wk-Vtw"/>
                                 <exclude reference="up7-hc-i2o"/>
+                                <exclude reference="2YP-7q-meD"/>
+                                <exclude reference="a3x-H2-7NH"/>
+                                <exclude reference="bpm-hB-1rh"/>
+                                <exclude reference="lHR-jh-Erf"/>
+                                <exclude reference="Gfs-8X-dIb"/>
+                                <exclude reference="mkY-V9-aVp"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -233,16 +257,22 @@
                                 <include reference="f4I-2P-QCL"/>
                                 <include reference="ZqB-74-Ajx"/>
                                 <include reference="ERT-i1-Rvb"/>
+                                <include reference="oRk-Kv-5bs"/>
+                                <include reference="zIo-lt-5JY"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="mkY-V9-aVp"/>
                                 <include reference="duS-Ge-wpR"/>
                                 <include reference="luS-da-7oJ"/>
-                                <include reference="Gfs-8X-dIb"/>
                                 <include reference="4u0-ws-qF8"/>
                                 <include reference="AHa-Yx-evU"/>
                                 <include reference="smN-wk-Vtw"/>
                                 <include reference="up7-hc-i2o"/>
+                                <include reference="2YP-7q-meD"/>
+                                <include reference="a3x-H2-7NH"/>
+                                <include reference="bpm-hB-1rh"/>
+                                <include reference="lHR-jh-Erf"/>
+                                <include reference="Gfs-8X-dIb"/>
+                                <include reference="mkY-V9-aVp"/>
                             </mask>
                         </variation>
                     </view>
@@ -271,6 +301,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Chipmunk" width="152" height="152"/>
+        <image name="Dark Vador" width="152" height="152"/>
         <image name="Mic" width="57" height="100"/>
         <image name="Pause" width="100" height="100"/>
         <image name="Quick" width="152" height="152"/>
