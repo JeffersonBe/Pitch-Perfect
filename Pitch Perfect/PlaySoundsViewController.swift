@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
+    @IBOutlet weak var stopAudioButton: UIButton!
+
     var audioPlayer:AVAudioPlayer!
     var receivedAudio:RecordedAudio!
     var audioEngine:AVAudioEngine!
@@ -18,7 +20,7 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
-        audioPlayer.enableRate = true
+        audioPlayer.enableRate = false
         audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
         audioEngine = AVAudioEngine()
     }
@@ -29,7 +31,10 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func stopAudio(sender: AnyObject) {
+        stopAudioButton.hidden = true
         audioPlayer.stop()
+        audioEngine.stop()
+        audioEngine.reset()
     }
     
     @IBAction func playAudioQuickly(sender: AnyObject) {
@@ -49,6 +54,7 @@ class PlaySoundsViewController: UIViewController {
     }
 
     func playAudioWithVariablePitch(pitch: Float){
+        stopAudioButton.hidden = false
         audioPlayer.stop()
         audioEngine.stop()
         audioEngine.reset()
@@ -68,6 +74,7 @@ class PlaySoundsViewController: UIViewController {
     }
 
     func playAudioWithVariableSpeed(Speed: Float) {
+        stopAudioButton.hidden = false
         audioEngine.stop()
         audioEngine.reset()
         audioPlayer.rate = Speed;

@@ -135,13 +135,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqB-74-Ajx">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="Pause"/>
-                                <connections>
-                                    <action selector="stopAudio:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="QXk-99-mfT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERT-i1-Rvb">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="Slow"/>
@@ -196,6 +189,13 @@
                                     <action selector="playAudioQuickly:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="GBY-61-2lA"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZqB-74-Ajx">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Pause"/>
+                                <connections>
+                                    <action selector="stopAudio:" destination="Ai9-Bm-GRe" eventType="touchUpInside" id="QXk-99-mfT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -218,11 +218,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="ZqB-74-Ajx"/>
                                 <exclude reference="ERT-i1-Rvb"/>
                                 <exclude reference="oRk-Kv-5bs"/>
                                 <exclude reference="zIo-lt-5JY"/>
                                 <exclude reference="f4I-2P-QCL"/>
+                                <exclude reference="ZqB-74-Ajx"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="PKU-yz-Oig"/>
@@ -245,11 +245,11 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="ZqB-74-Ajx"/>
                                 <include reference="ERT-i1-Rvb"/>
                                 <include reference="oRk-Kv-5bs"/>
                                 <include reference="zIo-lt-5JY"/>
                                 <include reference="f4I-2P-QCL"/>
+                                <include reference="ZqB-74-Ajx"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="PKU-yz-Oig"/>
@@ -271,6 +271,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="stopAudioButton" destination="ZqB-74-Ajx" id="dgy-tq-GJ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVX-y1-Gnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
