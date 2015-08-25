@@ -17,12 +17,9 @@ class PlaySoundsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            try audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, fileTypeHint: "wav")
-            try audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl)
-        } catch let error as NSError {
-            print(error)
-        }
+        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
+        audioPlayer.enableRate = true
+        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
         audioEngine = AVAudioEngine()
     }
 
@@ -36,25 +33,21 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func playAudioQuickly(sender: AnyObject) {
-        audioPlayer.enableRate = true
-        audioPlayer.currentTime = audioPlayer.currentTime
-        audioPlayer.rate = 2.0
-        audioPlayer.play()
+        playAudioWithVariableSpeed(2.0)
     }
 
     @IBAction func playAudioSlowly(sender: AnyObject?) {
-        audioPlayer.enableRate = true
-        audioPlayer.currentTime = audioPlayer.currentTime
-        audioPlayer.currentTime = 0.0
-        audioPlayer.rate = 0.5
-        audioPlayer.play()
+        playAudioWithVariableSpeed(0.5)
     }
+
     @IBAction func playAudioChipmunkLike(sender: AnyObject) {
         playAudioWithVariablePitch(1000)
     }
+
     @IBAction func playAudioDarkVadorLike(sender: AnyObject) {
         playAudioWithVariablePitch(-1000)
     }
+
     func playAudioWithVariablePitch(pitch: Float){
         audioPlayer.stop()
         audioEngine.stop()
@@ -70,13 +63,12 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.connect(audioPlayerNode, to: changePitchEffect, format: nil)
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-
-        do{
-            try audioEngine.start()
-        } catch let error as NSError {
-            print(error)
-        }
-        
+        audioEngine.startAndReturnError(nil)
         audioPlayerNode.play()
+    }
+
+    func playAudioWithVariableSpeed(Speed: Float) {
+        audioPlayer.rate = Speed;
+        audioPlayer.play()
     }
 }
