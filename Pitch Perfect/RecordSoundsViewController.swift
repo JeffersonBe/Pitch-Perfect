@@ -11,10 +11,10 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
-    @IBOutlet weak var recordingInProgress: UILabel!
+    @IBOutlet weak var recordStatusLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var recordButton: UIButton!
-    
+
     var audioRecorder:AVAudioRecorder!
     var recordedAudio:RecordedAudio!
 
@@ -27,11 +27,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         // Dispose of any resources that can be recreated.
     }
     override func viewWillAppear(animated: Bool) {
+        recordStatusLabel.text = "Tap to record"
         recordButton.enabled = true
         stopButton.hidden = true
     }
 
     @IBAction func recordAudio(sender: UIButton) {
+        recordStatusLabel.text = "Recording"
         stopButton.hidden = false
         recordButton.enabled = false
         let dirPath: AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
