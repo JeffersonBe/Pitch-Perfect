@@ -44,7 +44,7 @@
 		B4230BA41B7F68590048D6FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4230BA61B7F68590048D6FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4230BAB1B7F68590048D6FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B4230BB01B7F685A0048D6FA /* Pitch PerfectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4230BB01B7F685A0048D6FA /* Pitch PerfectTests.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectTests.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4230BB41B7F685A0048D6FA /* Pitch_PerfectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_PerfectTests.swift; sourceTree = "<group>"; };
 		B4230BB61B7F685A0048D6FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4230BBB1B7F685A0048D6FA /* Pitch PerfectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch PerfectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				B4230B9C1B7F68590048D6FA /* Pitch Perfect.app */,
-				B4230BB01B7F685A0048D6FA /* Pitch PerfectTests.xctest */,
+				B4230BB01B7F685A0048D6FA /* Pitch PerfectTests.bundle */,
 				B4230BBB1B7F685A0048D6FA /* Pitch PerfectUITests.xctest */,
 			);
 			name = Products;
@@ -185,7 +185,7 @@
 			);
 			name = "Pitch PerfectTests";
 			productName = "Pitch PerfectTests";
-			productReference = B4230BB01B7F685A0048D6FA /* Pitch PerfectTests.xctest */;
+			productReference = B4230BB01B7F685A0048D6FA /* Pitch PerfectTests.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		B4230BBA1B7F685A0048D6FA /* Pitch PerfectUITests */ = {

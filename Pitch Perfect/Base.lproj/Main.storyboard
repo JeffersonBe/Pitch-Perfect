@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qMe-mN-T0Z">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -225,8 +226,10 @@
                                 <exclude reference="ZqB-74-Ajx"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="irN-GA-qcT"/>
                                 <exclude reference="PKU-yz-Oig"/>
                                 <exclude reference="zC1-Qg-jcN"/>
+                                <exclude reference="CyF-0E-wRb"/>
                                 <exclude reference="GdT-qZ-HPU"/>
                                 <exclude reference="JzG-y2-DOs"/>
                                 <exclude reference="hru-ay-rfT"/>
@@ -239,8 +242,6 @@
                                 <exclude reference="buK-xW-kTN"/>
                                 <exclude reference="clx-vj-IcA"/>
                                 <exclude reference="nsN-Kf-YPS"/>
-                                <exclude reference="CyF-0E-wRb"/>
-                                <exclude reference="irN-GA-qcT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -252,8 +253,10 @@
                                 <include reference="ZqB-74-Ajx"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="irN-GA-qcT"/>
                                 <include reference="PKU-yz-Oig"/>
                                 <include reference="zC1-Qg-jcN"/>
+                                <include reference="CyF-0E-wRb"/>
                                 <include reference="GdT-qZ-HPU"/>
                                 <include reference="JzG-y2-DOs"/>
                                 <include reference="hru-ay-rfT"/>
@@ -266,8 +269,6 @@
                                 <include reference="buK-xW-kTN"/>
                                 <include reference="clx-vj-IcA"/>
                                 <include reference="nsN-Kf-YPS"/>
-                                <include reference="CyF-0E-wRb"/>
-                                <include reference="irN-GA-qcT"/>
                             </mask>
                         </variation>
                     </view>
